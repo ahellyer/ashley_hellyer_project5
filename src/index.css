@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+ 
+  
+}
+
+h1 {
+  font-size: 100px;
+}
+
+h1, h2 {
+   /* font-family: 'Fredericka the great', sans-serif; */
+   /* font-family: 'Cabin Sketch', sans-serif; */
+   font-family: 'Special Elite', sans-serif;
+   /* font-family: 'Anton', sans-serif; */
+   letter-spacing: 2px;
+}
+
+
+header {
+  height: 100vh;
+  background-image: url(LandingPageBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mainSection {
+  display: flex;
+}
+
+.myList {
+  border: 1px solid rebeccapurple;
+}
+
+
+/* modal styles in */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+#viewerCanvas {
+  width: 600px; 
+  height: 500px;
+} 
+
