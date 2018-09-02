@@ -126,18 +126,18 @@ componentDidMount() {
     })
     
     if (e.target.id === "fiction") {
-      listType = <Bestsellers addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Fiction"]} />
+      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Fiction"]} />
     
     } else if (e.target.id === "nonfiction") {
-      listType = <Bestsellers addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Nonfiction"]} />
+      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Nonfiction"]} />
     } else if (e.target.id === "business") {
-      listType = <Bestsellers addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Business Books"]} />
+      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Business Books"]} />
     } else if (e.target.id === "science") {
-      listType = <Bestsellers addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Science"]} />
+      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Science"]} />
     } else if (e.target.id === "youngAdult") {
-      listType = <Bestsellers addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Young Adult Hardcover"]} />
+      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Young Adult Hardcover"]} />
     } else if (e.target.id === "advice") {
-      listType = <Bestsellers addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Advice How-To and Miscellaneous"]} />
+      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Advice How-To and Miscellaneous"]} />
     }
 
     this.setState({
@@ -149,15 +149,15 @@ componentDidMount() {
   render() {
     return (
     <div className="App">
-        <nav>
-          <h1>Up With The Times</h1>
-          <div>
-            <button onClick={this.handleEvent} id="fiction">Fiction</button>
-            <button onClick={this.handleEvent} id="nonfiction">Nonfiction</button>
-            <button onClick={this.handleEvent} id="business">Business</button>
-            <button onClick={this.handleEvent} id="science">Science</button>
-            <button onClick={this.handleEvent} id="youngAdult">Young Adult</button>
-            <button onClick={this.handleEvent} id="advice">Advice</button>
+        <nav className="main-nav">
+          <h1 className="main-nav__title">Up With The Times</h1>
+          <div className="main-nav__button-container">
+            <button className="main-nav__button" onClick={this.handleEvent} id="fiction">Fiction</button>
+            <button className="main-nav__button" onClick={this.handleEvent} id="nonfiction">Nonfiction</button>
+            <button className="main-nav__button" onClick={this.handleEvent} id="business">Business</button>
+            <button className="main-nav__button" onClick={this.handleEvent} id="science">Science</button>
+            <button className="main-nav__button" onClick={this.handleEvent} id="youngAdult">Young Adult</button>
+            <button className="main-nav__button" onClick={this.handleEvent} id="advice">Advice</button>
           </div>
         </nav>
         <main className="mainSection">

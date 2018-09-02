@@ -15,7 +15,8 @@ class Book extends Component {
             imageThumbnail: '',
             bookPreview: '',
             show: false,
-            description: ''
+            description: '',
+            rating: ''
         }
     }
     
@@ -41,13 +42,15 @@ class Book extends Component {
             const imageThumbnail = res.data.items[0].volumeInfo.imageLinks.thumbnail
             const bookPreview = res.data.items[0].volumeInfo.previewLink
             const description = res.data.items[0].volumeInfo.description
+            const rating = res.data.items[0].volumeInfo.averageRating
             console.log(imageThumbnail)
             console.log(bookPreview)
             console.log(description);
             this.setState({
                 imageThumbnail: imageThumbnail,
                 bookPreview: bookPreview,
-                description: description
+                description: description,
+                rating: rating
 
             })
         })
@@ -74,8 +77,7 @@ class Book extends Component {
         e.preventDefault()
 
         console.log('gonna send to firebase YO');
-        // console.log(this.state.imageThumbnail);
-        // console.log(this.props.details.book_details[0].title);
+        
 
         firebase.database().ref('books/' + this.props.details.book_details[0].primary_isbn10).set({
             date: Date.now(),
@@ -87,34 +89,40 @@ class Book extends Component {
             bookDescription: this.props.details.book_details[0].description
         });
 
-        //call preview function using isbn number
-        
-
-     
 
     }
 
     render() {
         return (
            
-            <div>
-                {this.state.imageThumbnail ? <img src={this.state.imageThumbnail} alt={`Book cover for ${this.props.details.book_details[0].title}`} /> : <p>loading</p>}
+            <div className="book">
+                <div className="book__img-container">
+                    {this.state.imageThumbnail ? <img className="book__img"src={this.state.imageThumbnail} alt={`Book cover for ${this.props.details.book_details[0].title}`} /> : <p className="book__img-loading">loading</p>}
+                </div>
+                <h3 className="book__title">{this.props.details.book_details[0].title}</h3>
+                <p className="book__author">{this.props.details.book_details[0].author}</p>
+                <div className="book__info">
+                    <button className="book__info-button"type="button" onClick={this.showModal}>
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                    <form action="" onSubmit={this.sendToDatabase}>
+                        <button className="book__fave-button" type="submit" >
+                        <i class="far fa-heart"></i></button>
+                    </form>
+                    {/* <p className="book__description">{this.props.details.book_details[0].description}</p> */}
+                </div>
+                <div className="book__rank">0{this.props.details.rank}</div>
                 
-                <h3>{this.props.details.rank}{this.props.details.book_details[0].title}</h3>
-                <p>{this.props.details.book_details[0].author}</p>
-                <p>{this.props.details.book_details[0].description}</p>
-                <a href={this.props.details.amazon_product_url}>Buy now!</a>
-                <a href={this.state.bookPreview}>Preview on Google!</a>
                
                 {/* {client = new window.GBS_insertPreviewButtonPopup('ISBN:0738531367')} */}
-                <Modal url={this.state.bookPreview} description={this.state.description} show={this.state.show} handleClose={this.hideModal} />
+                <Modal url={this.state.bookPreview} description={this.state.description} thumbnail={this.state.imageThumbnail} show={this.state.show} handleClose={this.hideModal} details={this.props.details} rating={this.state.rating}/>
                     
-                <button type="button" onClick={this.showModal}>
-                    Open Google Preview
+                {/* <button type="button" onClick={this.showModal}>
+                    Info
                 </button>
                 <form action="" onSubmit={this.sendToDatabase}>
                     <input type="submit" value="add to My List"  />
-                </form>
+                </form> */}
             </div>
                
         )

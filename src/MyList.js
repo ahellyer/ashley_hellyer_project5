@@ -19,21 +19,22 @@ class MyList extends Component {
         if (booksInList.length > 0) {
             listItem = this.props.listOfBooks.map((item) => {
                 return (
-                        <li id={item.key}>
+                        <li className="my-list__item" id={item.key}>
+                            <img src={item.bookImage} alt=""/>
                             <div >{item.bookTitle}</div>
                             <input type="submit" value="delete" onClick={this.handleSubmit} />
                         </li>
                     )
             })
         } else {
-            listItem = <li>WHYYYYYYY </li>
+            listItem = <li className="my-list__default">Click the <i class="far fa-heart"></i> icon to add a book to your list! </li>
 
         }
 
         return (
-            <div className="myList">
-                <p>this is where my list will go </p>
-                <ul>
+            <div className="my-list">
+                <p className="my-list__title">this is where my list will go </p>
+                <ul className="my-list__ul">
                     
                     { listItem }
                 

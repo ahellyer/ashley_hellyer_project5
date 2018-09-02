@@ -16,10 +16,33 @@ class Modal extends Component {
         return (
             <div className={showHideClassName}>
                 <div className="modal-main">
-                    <p>Extended Description</p>
-                    <p>{this.props.description}</p>
+                    <div className="modal-main__title-bar">
+                        <div className="modal-main__img-container">
+                            <img src={this.props.thumbnail} alt="" />
+                        </div>
+                        <div className="modal-main__title-text">
+                            <p className="modal-main__book-title">{this.props.details.book_details[0].title}</p>
+                            <div className="modal-main__book-info-container">
+                                <p className="modal-main__book-rank">Current Rank: {this.props.details.rank}</p>
+                                <p className="modal-main__book-weeks">Weeks on List: {this.props.details.weeks_on_list}</p>
+                                <div className="modal-main__book-rating-container">
+                                    <p className="modal-main__book-rating">average rating: {this.props.rating}/5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-main__description">
+                        <p>Extended Description</p>
+
+                        <p>{this.props.description}</p>
                     
-                    <button onClick={this.props.handleClose}>close</button>
+                        <a className="modal-main__link" href={this.props.details.amazon_product_url}>Buy now</a>
+                        <a className="modal-main__link"href={this.props.url}>Preview on Google</a>
+                        
+                        <button className="modal-main__close" onClick={this.props.handleClose}><i class="fas fa-times"></i>
+
+</button>
+                    </div>
                 </div>
             </div>
         )

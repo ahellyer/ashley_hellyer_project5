@@ -14,21 +14,21 @@ class Bestsellers extends Component {
     
     render() {
         return (
-            <div>
-                {/* <h2>`I am inside the {this.props.list[0].list_name}!!!`</h2> */}
+            <div className="bestsellers">
+                {/* <h2>Current bestsellers for {this.props.list[0].list_name}:</h2> */}
                 {/* {map through the chosen list and create a book component for each book in the list, sending that book details about itself} */}
+                
                 {this.props.list.map((item) => {
                     return (
-                        <div key={item.book_details[0].primary_isbn10}>
+                        <div className="book-container" key={item.book_details[0].primary_isbn10}>
                             <Book  addToList={this.props.addToMyList} current={this.props.current} details={item} />
                         </div>
                         
                     )
                 })}
+                
             </div>
-                    
-               
-           
+
         )
     }
 }
