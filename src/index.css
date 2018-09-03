@@ -1,35 +1,64 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans Condensed";
+  font-family: "Lato";
+  font-weight: 300;
 }
 
 h1 {
-  font-size: 100px;
+  font-family: 'Abril Fatface', serif;
 }
 
-h1, h2, h3 {
-   font-family: 'Fredericka the great', sans-serif;
-   /* font-family: 'Cabin Sketch', sans-serif; */
-   /* font-family: 'Special Elite', sans-serif; */
-   /* font-family: 'Anton', sans-serif; */
-   letter-spacing: 2px;
+h2, h3 {
+   font-family: Lato;
+   font-weight: 400;
 }
 
-/* landing page header */
+button:focus {
+  outline: none;
+}
+
+/* landing page header--------------------------------------------------------- */
 header {
   height: 100vh;
   background-image: url(LandingPageBackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position-x: 15px;
+  text-align: center;
+  color: #121e33;
+  
 }
 
-/* nav bar styles */
+.landing__container {
+  padding-top: 100px;
+}
+
+.landing__title {
+  font-size: 100px;
+
+}
+
+.landing__button {
+  border: 1px solid #121e33;
+  border-radius: 5px;
+  font-size: 24px;
+  padding: 5px;
+  color: #121e33;
+}
+
+/* nav bar styles --------------------------------------------------------- */
 
 .main-nav {
   margin: 0;
-  color: black;
+  color: #121e33;
   background-image: linear-gradient(to right,#c9d6ff, #e2e2e2);
 }
 
@@ -38,10 +67,8 @@ header {
   margin: 0;
   text-align: center;
   padding: 20px;
-  /* font-family: 'Special Elite', sans-serif; */
-  font-family: 'Fredericka the Great';
+  font-family: 'Abril Fatface';
   font-weight: bold;
-  /* font-family: "Cutive Mono"; */
 }
 
 .main-nav__button-container {
@@ -58,9 +85,15 @@ header {
   background: none;
   border: none;
   position: relative;
-  font-family: "Open Sans Condensed";
+  font-family: "Lato";
   font-size: 20px;
-  color: black;
+  color: #121e33;
+  padding: 10px;
+}
+
+.main-nav__button:hover {
+  cursor: pointer;
+
 }
 
 .main-nav__button::after {
@@ -70,7 +103,7 @@ header {
   bottom: 0;
   width: 0;
   height: 3px;
-  background: #000;
+  background: #121e33;
   transition: width .4s;
 }
 
@@ -79,10 +112,7 @@ header {
   width: 100%
 }
 
-
-
-
-/* Styles for main section */
+/* Styles for main section --------------------------------------------------------- */
 
 .mainSection {
   display: flex;
@@ -100,9 +130,9 @@ header {
 }
 
 .my-list__title {
-  font-family: 'Fredericka the Great';
+  /* font-family: 'Fredericka the Great'; */
   text-align: center;
-  color: black;
+  color: #121e33;
   margin: 0;
 }
 
@@ -111,20 +141,61 @@ header {
 }
 
 .my-list__item {
-  color: black;
+  color: #121e33;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .my-list__default {
   color: grey;
 }
 
-/* bestsellers list section  */
+.my-list__button {
+    position: absolute;
+    top: -5%;
+    left: 20%;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-list__button i {
+  padding: 2px 5px;
+}
+
+/* styles for default paragraph before category is chosen */
+.default-text {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.default-paragraph {
+  font-weight: 300;
+  font-size: 20px;
+  color: #666666;
+  margin: 0;
+}
+
+
+
+/* bestsellers list section ---------------------------------------------------------  */
 
 .bestsellers {
   width: 75%;
   background: #fafafa;
   padding: 20px;
+  padding-top: 50px;
   
 }
 
@@ -144,18 +215,14 @@ header {
   flex-wrap: wrap;
   flex-direction: column;
   text-align: left;
+  justify-content: space-around;
 }
-
-/* .book__img-container {
-  box-shadow: 5px 5px 10px grey;
-
-} */
 
 .book__title {
   text-transform: capitalize;
-  font-family: "Open Sans Condensed";
-  font-size: 20px;
-  font-weight: 700;
+  font-family: "Lato";
+  font-size: 18px;
+  font-weight: 400;
   margin: 0;
   text-align: left;
 }
@@ -168,11 +235,15 @@ header {
 
 .book__author {
   margin: 0;
+  font-family: "Lato";
+  font-weight: 300;
   text-align: left;
 }
 
 .book__img-loading {
   color: grey;
+  width: 128px;
+  height: 190px;
 }
 
 .book__info {
@@ -184,15 +255,35 @@ header {
   font-size: 24px;
 }
 
-.book__rank {
+.far:hover, .fas:hover {
+  cursor: pointer;
+}
+
+.fa-heart:hover {
+  color: rgb(251, 57, 66);
+  
+}
+
+.book__rank-container {
   position: absolute;
-  font-size: 60px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  background: rgba(255, 255, 255, 0.8);
+  border: #121e33 1px solid;
+  padding: 10px;
+  border-radius: 50%;
+  top: -7%;
+  left:-10%;
+}
+
+.book__rank {
+  font-size: 20px;
   margin: 0;
-  right: -30px;
-  bottom: -30px;
-  font-family: "Fredericka the Great";
-  color: grey;
-  opacity: 0.7;
+  font-family: "Abril Fatface";
+  color: #121e33;
 }
 
 .book__info-button, .book__fave-button {
@@ -200,7 +291,6 @@ header {
   border: none;
   height: 20px;
 }
- 
 
 /* modal styles in */
 .modal {
@@ -216,10 +306,12 @@ header {
   position:fixed;
   background: white;
   width: 80%;
-  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  border-radius: 5px;
 }
 
 .modal-main__title-bar {
@@ -228,33 +320,74 @@ header {
 }
 
 .modal-main__img-container {
-  width: 20%
+  float: left;
+  margin-right: 10px;
 }
 
 .modal-main__title-text {
-  width: 80%;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
+  padding: 20px;
 }
 
 .modal-main__book-title {
   font-size: 40px;
   text-align: left;
   margin: 5px;
+  width: 30%;
 }
 
 .modal-main__description {
   padding: 20px;
 }
 
+.modal-main__description-text {
+  line-height: 1.5;
+  font-size: 20px;
+}
+
 .modal-main__book-info-container {
-  width: 100%;
+  width: 70%;
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
 
 .modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating-container {
-  width: 30%;
+  width: 33%;
   display: inline-block;
+  text-align: right;
 }  
+
+.modal-main__close {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-main__link-container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.modal-main__link {
+  text-decoration: none;
+  display: inline-block;
+  width: calc(50% - 20px);
+  margin: 10px;
+  font-size: 20px;
+  color: #fafafa;
+  background: #121e33;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+      
+}
 
 .display-block {
   display: block;
@@ -274,6 +407,116 @@ header {
   display: flex;
   flex-wrap: wrap;
 }
+
+
+/* media queries ---------------------------------------------------------  */
+
+@media(max-width: 1100px) {
+  header {
+    background-position-x: center;
+  }
+  .main-nav__button-container {
+    width: 95%;
+  }
+  .modal-main__book-info-container{
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+@media(max-width: 900px) {
+  .landing__title {
+    font-size: 70px;
+  }
+  .mainSection {
+    flex-direction: column;
+  }
+  .my-list {
+    width: 100%;
+  }
+  .bestsellers {
+    width: 100%;
+  }
+  .my-list__ul {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+  .my-list__item {
+    padding: 10px;
+  }
+  .main-nav__button-container {
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .main-nav {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 850px) {
+  .main-nav__button-container {
+    height: 100px;
+  }
+  .main-nav__button {
+    min-width: 140px;
+  }
+  .main-nav__title {
+    font-size: 50px;
+  }
+  .modal-main__title-text {
+    flex-direction: column;
+  }
+  .modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating-container {
+    text-align: left;
+  }
+  .modal-main__book-info-container {
+    width: 100%;
+  }
+  .modal-main__description-text {
+    font-size: 20px;
+  }
+  .modal-main__link {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+}
+
+@media(max-width: 750px) {
+  .book-container {
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 650px) {
+  .landing__title {
+    font-size: 50px;
+    
+  }
+  .landing__button {
+    font-size: 20px;
+  }
+  .main-nav__button-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing__title {
+    font-size: 40px;
+  }
+  .book-container {
+    width: 50%;
+  }
+  .modal-main {
+    width: 100%;
+  }
+  .modal-main__book-info-container {
+    font-size: 14px;
+  }
+}
+
 
 
 

@@ -22,7 +22,8 @@ class MyList extends Component {
                         <li className="my-list__item" id={item.key}>
                             <img src={item.bookImage} alt=""/>
                             <div >{item.bookTitle}</div>
-                            <input type="submit" value="delete" onClick={this.handleSubmit} />
+                        <button className="my-list__button" onClickonClick={this.handleSubmit}><i className="fas fa-times"></i></button>
+                            {/* <input type="submit" value="delete" onClick={this.handleSubmit} /> */}
                         </li>
                     )
             })

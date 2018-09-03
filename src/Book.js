@@ -36,6 +36,7 @@ class Book extends Component {
             params: {
                 key: googleKey,
                 q: isbn,
+                country: 'CA',
             }
         }).then((res) => {
             // console.log(res)
@@ -103,15 +104,19 @@ class Book extends Component {
                 <p className="book__author">{this.props.details.book_details[0].author}</p>
                 <div className="book__info">
                     <button className="book__info-button"type="button" onClick={this.showModal}>
-                        <i class="fas fa-info-circle"></i>
+                        <i className="fas fa-info-circle"></i>
                     </button>
                     <form action="" onSubmit={this.sendToDatabase}>
                         <button className="book__fave-button" type="submit" >
-                        <i class="far fa-heart"></i></button>
+                        <i className="far fa-heart"></i></button>
                     </form>
                     {/* <p className="book__description">{this.props.details.book_details[0].description}</p> */}
                 </div>
-                <div className="book__rank">0{this.props.details.rank}</div>
+                
+                <div className="book__rank-container">
+                    <p className="book__rank">{this.props.details.rank}</p>
+                </div>
+                    
                 
                
                 {/* {client = new window.GBS_insertPreviewButtonPopup('ISBN:0738531367')} */}

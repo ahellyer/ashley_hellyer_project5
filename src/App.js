@@ -11,7 +11,13 @@ import MyList from './MyList'
 //create global variable
 const dbRef = firebase.database().ref('books/');
 
-let listType = null;
+// let listType = null;
+
+//set default paragraph
+
+let listType = <div class="default-text">
+                  <p class="default-paragraph">Click on a genre above to see the most recent New York Times bestsellers in that category.</p>
+                </div>
 
 const url = "http://api.nytimes.com/svc/books/v3/lists";
 const apiKey = "d73fa0a7cb05443386054d5de0324882";
@@ -32,7 +38,7 @@ constructor() {
       
     },
     chosenList: null,
-    current: null,
+    current: '',
     myBooks: []
   }
 }
@@ -119,26 +125,26 @@ componentDidMount() {
 
   // conditionally rendering the Bestsellers page depending on what button was pressed and updating the "current:"" state to the genre picked
   handleEvent = (e) => {
-    console.log('handling the event!')
+    console.log('handling the category click!')
 
     this.setState({
       current: e.target.id
     })
     
     if (e.target.id === "fiction") {
-      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Fiction"]} />
+      listType = <Bestsellers listTitle={e.target.id} className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Fiction"]} />
     
     } else if (e.target.id === "nonfiction") {
-      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Nonfiction"]} />
+      listType = <Bestsellers listTitle={e.target.id} className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Combined Print and E-Book Nonfiction"]} />
     } else if (e.target.id === "business") {
-      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Business Books"]} />
+      listType = <Bestsellers listTitle={e.target.id} className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Business Books"]} />
     } else if (e.target.id === "science") {
-      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Science"]} />
+      listType = <Bestsellers listTitle={e.target.id} className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Science"]} />
     } else if (e.target.id === "youngAdult") {
-      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Young Adult Hardcover"]} />
+      listType = <Bestsellers listTitle={e.target.id} className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Young Adult Hardcover"]} />
     } else if (e.target.id === "advice") {
-      listType = <Bestsellers className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Advice How-To and Miscellaneous"]} />
-    }
+      listType = <Bestsellers listTitle={e.target.id} className="bestsellers-container" addToList={this.addToMyList} current={this.state.current} list={this.state.lists["Advice How-To and Miscellaneous"]} />
+    } 
 
     this.setState({
       chosenList: listType

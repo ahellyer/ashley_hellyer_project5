@@ -17,9 +17,7 @@ class Modal extends Component {
             <div className={showHideClassName}>
                 <div className="modal-main">
                     <div className="modal-main__title-bar">
-                        <div className="modal-main__img-container">
-                            <img src={this.props.thumbnail} alt="" />
-                        </div>
+                        
                         <div className="modal-main__title-text">
                             <p className="modal-main__book-title">{this.props.details.book_details[0].title}</p>
                             <div className="modal-main__book-info-container">
@@ -31,15 +29,24 @@ class Modal extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="modal-main__description">
-                        <p>Extended Description</p>
+                    <div className="modal-main__description clearfix">
+                        <div className="modal-main__img-container">
+                            <img src={this.props.thumbnail} alt="" />
+                        </div>
 
-                        <p>{this.props.description}</p>
-                    
-                        <a className="modal-main__link" href={this.props.details.amazon_product_url}>Buy now</a>
-                        <a className="modal-main__link"href={this.props.url}>Preview on Google</a>
+                        <p className="modal-main__description-text">{this.props.description}</p>
+
+                        <div className="modal-main__link-container">
+                            <a className="modal-main__link" href={this.props.details.amazon_product_url}><i className="fas fa-shopping-cart"></i>
+
+                                Buy now</a>
+                            <a className="modal-main__link" href={this.props.url}><i className="fas fa-book-reader"></i>
+
+                                Preview on Google</a>
                         
-                        <button className="modal-main__close" onClick={this.props.handleClose}><i class="fas fa-times"></i>
+                        </div>
+                    
+                        <button className="modal-main__close" onClick={this.props.handleClose}><i className="fas fa-times"></i>
 
 </button>
                     </div>
