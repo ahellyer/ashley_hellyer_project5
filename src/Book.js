@@ -6,7 +6,6 @@ import Modal from './Modal';
 const googleURL = 'https://www.googleapis.com/books/v1/volumes';
 const googleKey = 'AIzaSyBRHR3FXjHFoFsh5iRztvXQy_nzMkDCkPE';
 
-// let client = '';
 
 class Book extends Component {
     constructor() {
@@ -39,14 +38,12 @@ class Book extends Component {
                 country: 'CA',
             }
         }).then((res) => {
-            // console.log(res)
+            
             const imageThumbnail = res.data.items[0].volumeInfo.imageLinks.thumbnail
             const bookPreview = res.data.items[0].volumeInfo.previewLink
             const description = res.data.items[0].volumeInfo.description
             const rating = res.data.items[0].volumeInfo.averageRating
-            console.log(imageThumbnail)
-            console.log(bookPreview)
-            console.log(description);
+           
             this.setState({
                 imageThumbnail: imageThumbnail,
                 bookPreview: bookPreview,
@@ -67,8 +64,6 @@ class Book extends Component {
 
     componentDidMount() {
         //make API call based on book isbn:
-        //function to get isbn?
-     
         
         this.getIsbn();
 
@@ -76,10 +71,8 @@ class Book extends Component {
 
     sendToDatabase = (e) => {
         e.preventDefault()
-
-        console.log('gonna send to firebase YO');
         
-
+        //send book info to firebase on click of icon
         firebase.database().ref('books/' + this.props.details.book_details[0].primary_isbn10).set({
             date: Date.now(),
             key: this.props.details.book_details[0].primary_isbn10,
@@ -110,33 +103,22 @@ class Book extends Component {
                         <button className="book__fave-button" type="submit" >
                         <i className="far fa-heart"></i></button>
                     </form>
-                    {/* <p className="book__description">{this.props.details.book_details[0].description}</p> */}
+                    
                 </div>
                 
                 <div className="book__rank-container">
                     <p className="book__rank">{this.props.details.rank}</p>
                 </div>
                     
-                
-               
-                {/* {client = new window.GBS_insertPreviewButtonPopup('ISBN:0738531367')} */}
                 <Modal url={this.state.bookPreview} description={this.state.description} thumbnail={this.state.imageThumbnail} show={this.state.show} handleClose={this.hideModal} details={this.props.details} rating={this.state.rating}/>
                     
-                {/* <button type="button" onClick={this.showModal}>
-                    Info
-                </button>
-                <form action="" onSubmit={this.sendToDatabase}>
-                    <input type="submit" value="add to My List"  />
-                </form> */}
+                
             </div>
                
         )
     }
 }
 
-// const container = document.createElement("div");
-// document.body.appendChild(container);
-// ReactDOM.render(<Book />, container);
 
 export default Book;
 

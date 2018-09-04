@@ -8,13 +8,11 @@ import firebase from './firebase';
 import Bestsellers from './Bestsellers'
 import MyList from './MyList'
 
-//create global variable
+//create global variable for database
 const dbRef = firebase.database().ref('books/');
 
-// let listType = null;
 
 //set default paragraph
-
 let listType = <div class="default-text">
                   <p class="default-paragraph">Click on a genre above to see the most recent New York Times bestsellers in that category.</p>
                 </div>
@@ -46,9 +44,9 @@ constructor() {
 
   
 componentDidMount() {
-  //i could send my request through the proxy and they would cache the data so i would make less calls per day if I wanted...
-  console.log('it mounted!')
-
+  
+  
+//grabbing snapshot of firebase database on change
   dbRef.on('value', (snapshot) => {
     //snapshot of database
     if(snapshot.val()) {
@@ -77,13 +75,13 @@ componentDidMount() {
   })
 
   Promise.all(dataRequest).then((responses)=> {
-    // console.log(responses);
+    
     responses=responses.map((response) => {
       return response.data.results
     }).reduce((acc, cur) => {
       // console.log(acc, cur)
       
-      //we use reduce to take our array of values and reduce it into an object whre the keys are the list_names and the values are the array of books that live in that list 
+      // use reduce to take our array of values and reduce it into an object whre the keys are the list_names and the values are the array of books that live in that list 
       const list = cur[0].list_name
       if(acc[list]=== undefined) {
         acc[list] = cur
@@ -114,7 +112,7 @@ componentDidMount() {
     }).sort((a,b) => {
       return b.date - a.date
     })
-    console.log(booksArray);
+   
 
     this.setState({
       myBooks: booksArray
@@ -125,7 +123,7 @@ componentDidMount() {
 
   // conditionally rendering the Bestsellers page depending on what button was pressed and updating the "current:"" state to the genre picked
   handleEvent = (e) => {
-    console.log('handling the category click!')
+    
 
     this.setState({
       current: e.target.id
@@ -175,7 +173,5 @@ componentDidMount() {
   }
 
 }
-
-
 
 export default App;

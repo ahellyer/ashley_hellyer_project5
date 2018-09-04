@@ -10,6 +10,7 @@ body {
   padding: 0;
   font-family: "Lato";
   font-weight: 300;
+  color: #121e33;
 }
 
 h1 {
@@ -30,7 +31,7 @@ header {
   height: 100vh;
   background-image: url(LandingPageBackground.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position-x: 15px;
   text-align: center;
   color: #121e33;
@@ -38,12 +39,19 @@ header {
 }
 
 .landing__container {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .landing__title {
   font-size: 100px;
+  margin: 0;
+}
 
+.landing__paragraph {
+  color: #121e33;
+  font-size: 20px;
+  padding: 0px;
+  margin: 15px;
 }
 
 .landing__button {
@@ -51,6 +59,7 @@ header {
   border-radius: 5px;
   font-size: 24px;
   padding: 5px;
+  background:none;
   color: #121e33;
 }
 
@@ -59,7 +68,7 @@ header {
 .main-nav {
   margin: 0;
   color: #121e33;
-  background-image: linear-gradient(to right,#c9d6ff, #e2e2e2);
+  background-image: linear-gradient(to right, rgb(172, 171, 168), rgb(188, 188, 186));
 }
 
 .main-nav__title {
@@ -81,7 +90,7 @@ header {
 }
 
 .main-nav__button {
-  width: calc(100% / 7);
+  width: calc(100% / 6);
   background: none;
   border: none;
   position: relative;
@@ -109,7 +118,17 @@ header {
 
 .main-nav__button:hover::after {
   cursor: pointer;
-  width: 100%
+  width: 100%;
+}
+
+.main-nav__button:focus::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #121e33;
 }
 
 /* Styles for main section --------------------------------------------------------- */
@@ -127,6 +146,7 @@ header {
   border-bottom: 3px solid lightgray;
   box-shadow: 5px 5px 10px grey;
   color: white;
+  z-index: 10;
 }
 
 .my-list__title {
@@ -134,6 +154,8 @@ header {
   text-align: center;
   color: #121e33;
   margin: 0;
+  font-family: "Abril Fatface";
+  font-size: 20px;
 }
 
 .my-list__ul {
@@ -161,10 +183,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.my-list__button i {
-  padding: 2px 5px;
+    font-size: 20px;
+    font-family: "Verdana";
 }
 
 /* styles for default paragraph before category is chosen */
@@ -172,12 +192,9 @@ header {
   position: relative;
   margin: 0 auto;
   width: 50%;
-  margin: 0 auto;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  padding-top: 50px;
+  
 }
 
 .default-paragraph {
@@ -194,8 +211,9 @@ header {
 .bestsellers {
   width: 75%;
   background: #fafafa;
-  padding: 20px;
-  padding-top: 50px;
+  padding: 50px 20px 20px 30px;
+  display: flex;
+  flex-wrap: wrap;
   
 }
 
@@ -253,6 +271,7 @@ header {
 .far, .fas {
   padding: 10px 5px;
   font-size: 24px;
+  color: #121e33;
 }
 
 .far:hover, .fas:hover {
@@ -262,6 +281,9 @@ header {
 .fa-heart:hover {
   color: rgb(251, 57, 66);
   
+}
+.fa-info-circle:hover {
+  color: grey;
 }
 
 .book__rank-container {
@@ -289,7 +311,7 @@ header {
 .book__info-button, .book__fave-button {
   background: none;
   border: none;
-  height: 20px;
+  
 }
 
 /* modal styles in */
@@ -315,7 +337,8 @@ header {
 }
 
 .modal-main__title-bar {
-  display: flex;
+  
+  width: 100%;
   border-bottom: 1px solid black;
 }
 
@@ -327,6 +350,7 @@ header {
 .modal-main__title-text {
   width: 100%;
   display: flex;
+  text-align: left;
   padding: 20px;
 }
 
@@ -334,7 +358,7 @@ header {
   font-size: 40px;
   text-align: left;
   margin: 5px;
-  width: 30%;
+  width: 100%;
 }
 
 .modal-main__description {
@@ -347,19 +371,17 @@ header {
 }
 
 .modal-main__book-info-container {
-  width: 70%;
-  text-align: right;
+  width: 100%;
+  text-align: left;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-  padding-right: 10px;
+ 
 }
 
-.modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating-container {
-  width: 33%;
-  display: inline-block;
-  text-align: right;
+.modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating {
+  width: calc(33% - 20px);
+  display: block;
+  text-align: left;
+  margin: 10px;
 }  
 
 .modal-main__close {
@@ -403,37 +425,35 @@ header {
   height: 500px;
 } 
 
-.bestsellers {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-
 /* media queries ---------------------------------------------------------  */
 
 @media(max-width: 1100px) {
   header {
     background-position-x: center;
   }
-  .main-nav__button-container {
-    width: 95%;
-  }
-  .modal-main__book-info-container{
-    align-items: flex-start;
-    justify-content: center;
-  }
-}
-
-@media(max-width: 900px) {
   .landing__title {
     font-size: 70px;
   }
+  .main-nav__button-container {
+    width: 95%;
+  }
+  
+}
+
+@media(max-width: 900px) {
+  
   .mainSection {
     flex-direction: column;
   }
   .my-list {
     width: 100%;
   }
+
+  .my-list__button {
+    top:0;
+    left:0;
+  }
+
   .bestsellers {
     width: 100%;
   }
@@ -458,6 +478,7 @@ header {
 @media (max-width: 850px) {
   .main-nav__button-container {
     height: 100px;
+    width: 65%;
   }
   .main-nav__button {
     min-width: 140px;
@@ -465,15 +486,7 @@ header {
   .main-nav__title {
     font-size: 50px;
   }
-  .modal-main__title-text {
-    flex-direction: column;
-  }
-  .modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating-container {
-    text-align: left;
-  }
-  .modal-main__book-info-container {
-    width: 100%;
-  }
+  
   .modal-main__description-text {
     font-size: 20px;
   }
@@ -487,18 +500,41 @@ header {
   .book-container {
     width: 33.3%;
   }
+  .bestsellers {
+    justify-content: center;
+  }
+  .modal-main__link-container {
+    width: 100%;
+  }
+  .modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating {
+    margin: 5px;
+    width: calc(33% - 10px);
+  }
 }
 
 @media (max-width: 650px) {
   .landing__title {
     font-size: 50px;
-    
+  }
+  
+  .main-nav__title {
+    font-size: 30px;
   }
   .landing__button {
     font-size: 20px;
   }
   .main-nav__button-container {
-    width: 80%;
+    width: 90%;
+  }
+  .modal-main__link {
+    width: calc(100% - 20px);
+  }
+  .modal-main__title-bar {
+    padding-left: 10px;
+  }
+  .modal-main__book-info-container {
+    font-size: 14px;
+    flex-direction: column;
   }
 }
 
@@ -506,14 +542,47 @@ header {
   .landing__title {
     font-size: 40px;
   }
+  .default-text{
+    width: 75%;
+  }
   .book-container {
     width: 50%;
+  }
+
+  .book {
+    align-items:center;
+  }
+  .book__title {
+    text-align: center;
+  }
+  .book__rank-container {
+    left: 10%;
   }
   .modal-main {
     width: 100%;
   }
+
+  .modal-main__img-container {
+    display:none;
+  }
+
+  .modal-main__book-rank, .modal-main__book-weeks, .modal-main__book-rating {
+    width: 100%;
+  }
   .modal-main__book-info-container {
     font-size: 14px;
+    flex-direction: column;
+  }
+  .main-nav__button {
+    min-width: 130px;
+    padding: 5px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .book__rank-container {
+    left: 0;
   }
 }
 

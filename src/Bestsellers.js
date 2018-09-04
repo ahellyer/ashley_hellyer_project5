@@ -15,8 +15,7 @@ class Bestsellers extends Component {
     render() {
         return (
             <div className="bestsellers">
-                {/* <h2>Current {this.props.listTitle} Bestsellers: </h2> */}
-                {/* {map through the chosen list and create a book component for each book in the list, sending that book details about itself} */}
+                
                 
                 {this.props.list.map((item) => {
                     return (

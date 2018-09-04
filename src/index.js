@@ -6,8 +6,7 @@ import Router from './Router';
 // import LandingPage from './LandingPage.js';
 import registerServiceWorker from './registerServiceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+
 
 ReactDOM.render(<Router />, document.getElementById('root'));
 registerServiceWorker();
