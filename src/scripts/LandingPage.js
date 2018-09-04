@@ -15,7 +15,7 @@ class LandingPage extends Component {
                 <div className="landing__container">
                     <h1 className="landing__title">Up with the Times</h1>
                     <p className="landing__paragraph">Explore current New York Times bestsellers</p>
-                    <button className="landing__button"onClick={this.goToExplore}>Explore lists!</button>
+                    <button className="landing__button"onClick={this.goToExplore}>Enter</button>
                 </div>
             </header>
         )

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import Qs from 'qs';
-import './App.css';
+// import './App.css';
 import firebase from './firebase';
 
 //COMPONENTS
